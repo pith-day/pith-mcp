@@ -4,15 +4,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pith — the Instagram MCP server</title>
+<title>Pith, the Instagram MCP server</title>
 <meta name="description" content="A hosted remote MCP server for Instagram Business and Creator accounts. Your assistant posts your photo with your caption, on your say-so, through the official Instagram Graph API. Nothing to install, no API key to paste, no password to hand over.">
 <link rel="canonical" href="https://pith.day/connect/mcp">
-<meta property="og:title" content="Pith — the Instagram MCP server">
+<meta property="og:title" content="Pith, the Instagram MCP server">
 <meta property="og:description" content="Publish to Instagram from the chat you are already in.">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#F0F7F6; --surface:#FFFFFF; --ink:#17150E; --ink2:rgba(23,21,14,.62);
@@ -109,7 +106,7 @@
     <code id="ep">https://pith.day/api/mcp</code>
     <button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('ep').textContent);this.textContent='Copied'">Copy</button>
   </div>
-  <p class="muted">Streamable HTTP. Sign-in happens in your browser over OAuth 2.1 — the server issues the token, the client never sees a password of yours.</p>
+  <p class="muted">Streamable HTTP. Sign-in happens in your browser over OAuth 2.1: the server issues the token, the client never sees a password of yours.</p>
   <a class="cta" href="https://pith.day/connect/mcp?utm_source=github&utm_medium=pages&utm_campaign=pith-mcp">Connect Pith</a>
   <a class="cta ghost" href="https://pith.day/connect/mcp?utm_source=github&utm_medium=pages&utm_campaign=pith-mcp">Full setup guide</a>
 </section>
@@ -143,7 +140,7 @@
   <p class="lead">Your client will ask for a remote MCP server URL. This is it:</p>
   <details>
     <summary>Claude (web, desktop, mobile)</summary>
-    <ol><li>Settings → Connectors → Add custom connector.</li><li>Paste the address above and connect.</li><li>Sign in with email or Google when Claude opens pith.day, and approve what it asks for.</li></ol>
+    <ol><li>Customize → Connectors → + → Add custom connector.</li><li>Paste the address above and connect.</li><li>Sign in with email or Google when Claude opens pith.day, and approve what it asks for.</li></ol>
   </details>
   <details>
     <summary>Claude Code</summary>
@@ -162,12 +159,12 @@
 }</code></pre>  </details>
   <details>
     <summary>Anything else</summary>
-    <ol><li>Wherever the app asks for a remote MCP server, paste the address.</li><li>Transport: streamable HTTP. Auth: OAuth — Dynamic Client Registration and Client ID Metadata Documents both work, so most clients need no manual setup at all.</li></ol>
+    <ol><li>Wherever the app asks for a remote MCP server, paste the address.</li><li>Transport: streamable HTTP. Auth: OAuth, with Dynamic Client Registration and Client ID Metadata Documents both work, so most clients need no manual setup at all.</li></ol>
   </details>
   <div class="note">
     <h3>First run</h3>
-    <ol><li><code>whoami</code> — shows nothing is connected yet.</li><li><code>connect my instagram</code> — the server hands back a single-use link into Instagram's official login. Approve there, and you land back on a done page.</li><li><code>whoami</code> again — your account, with <code>canPublish: true</code>.</li><li><code>post this photo with this caption</code> — it is live on Instagram. The reply tells you the exact caption that was posted and links the post.</li></ol>
-    <p class="muted">An Instagram <strong>Business</strong> or <strong>Creator</strong> account is required — that is Meta's rule for API publishing, not ours. Switching a personal account over is free and takes a minute in the Instagram app.</p>
+    <ol><li><code>whoami</code>: shows nothing is connected yet.</li><li><code>connect my instagram</code>: the server hands back a single-use link into Instagram's official login. Approve there, and you land back on a done page.</li><li><code>whoami</code> again: your account, with <code>canPublish: true</code>.</li><li><code>post this photo with this caption</code>: it is live on Instagram. The reply tells you the exact caption that was posted and links the post.</li></ol>
+    <p class="muted">An Instagram <strong>Business</strong> or <strong>Creator</strong> account is required. That is Meta's rule for API publishing, not ours. Switching a personal account over is free and takes a minute in the Instagram app.</p>
   </div>
 </section>
 
@@ -184,7 +181,7 @@
 
 <section id="tools">
   <h2>The tools</h2>
-  <p class="lead">The full list, generated from the live server — not a highlight reel. The permission column is what your client is granted at connect time. 34 tools.</p>
+  <p class="lead">The full list, generated from the live server, not a highlight reel. The permission column is what your client is granted at connect time. 39 tools.</p>
         <div class="group">
           <h3>Your account</h3>
           <p class="muted">How the assistant finds you and which business it's working on.</p>
@@ -193,6 +190,7 @@
             <li><code>get_tenant</code><span>Pull your profile: voice, active flow, Instagram connection, timezone</span><em>view</em></li>
             <li><code>onboard_tenant</code><span>Set up a new business from its Instagram handle. Scrape, brand voice, first drafts</span><em>edit</em></li>
             <li><code>connect_instagram</code><span>Get a one-time link that connects your Instagram account for publishing</span><em>edit</em></li>
+            <li><code>contact_support</code><span>Send a message to a person at Pith, who replies by email</span><em>edit</em></li>
           </ul>
         </div>
         <div class="group">
@@ -204,6 +202,8 @@
             <li><code>update_draft</code><span>Approve, reject, reword, or schedule a draft for later</span><em>edit</em></li>
             <li><code>generate_draft</code><span>Ask for today's drafts now instead of waiting for the morning run</span><em>edit</em></li>
             <li><code>regenerate_draft</code><span>Rewrite a draft's text, optionally with a new angle</span><em>edit</em></li>
+            <li><code>set_day_note</code><span>Tell pith one line about what is happening today, so tomorrow's stories are about it</span><em>edit</em></li>
+            <li><code>set_running_offer</code><span>Tell pith about a sale or launch that is running and when it ends, the only offer stories may mention</span><em>edit</em></li>
           </ul>
         </div>
         <div class="group">
@@ -220,7 +220,7 @@
           <p class="muted">Plan posts by date without opening the calendar.</p>
           <ul class="tools">
             <li><code>get_schedule</code><span>See everything queued and when it goes out</span><em>view</em></li>
-            <li><code>edit_schedule</code><span>Add, move, or remove a scheduled post. Including filling a whole week</span><em>edit</em></li>
+            <li><code>edit_schedule</code><span>Add, move, or remove a scheduled post, fill a whole week, or mute a day</span><em>edit</em></li>
           </ul>
         </div>
         <div class="group">
@@ -229,6 +229,8 @@
           <ul class="tools">
             <li><code>get_brand_dna</code><span>Read your voice, palette, and posting beats</span><em>view</em></li>
             <li><code>refine_brand_dna</code><span>&quot;Warmer voice&quot;, &quot;add a Friday specials beat&quot;, and it's changed</span><em>edit</em></li>
+            <li><code>propose_brief</code><span>See what Pith would post for you, as choices to pick from</span><em>view</em></li>
+            <li><code>set_brief</code><span>Tell your social media manager what you want to see, and what never</span><em>edit</em></li>
             <li><code>brand_dna_drift</code><span>Accept or dismiss a suggested update when your feed moves on</span><em>edit</em></li>
             <li><code>regenerate_brand_dna</code><span>Start the voice profile over from your current Instagram</span><em>edit</em></li>
             <li><code>curate_images</code><span>Keep only the photos worth generating stories from</span><em>edit</em></li>
@@ -280,10 +282,10 @@
   <h2>Things worth knowing before you connect</h2>
   <div class="rows">
     <div class="row"><b>Nothing is posted that you did not ask for</b><span class="muted">Either you asked for this post in this message, or you approved the draft it came from. The server has no path around that rule and no unattended mode.</span></div>
-    <div class="row"><b>Nothing goes out on a timer</b><span class="muted">Pith does not hold an approved post and release it later. If you want a post at 9:30, your own assistant's scheduled task can ask for it then — that is your action, under your grant, and you can stop it whenever you like.</span></div>
+    <div class="row"><b>Nothing goes out on a timer</b><span class="muted">Pith does not hold an approved post and release it later. If you want a post at 9:30, your own assistant's scheduled task can ask for it then. That is your action, under your grant, and you can stop it whenever you like.</span></div>
     <div class="row"><b>Drawing a story takes a minute</b><span class="muted">When Pith makes the image rather than posting yours, an image model draws it. Sixty to ninety seconds is normal and your client will sit and wait.</span></div>
-    <div class="row"><b>Free-plan story images cost a slot</b><span class="muted">Asking to download a generated story image spends one of the five monthly stories the first time, exactly as it does in the app. Publishing your own photo never does.</span></div>
-    <div class="row"><b>Feed captions carry one attribution line on Free</b><span class="muted">Free-plan feed posts get a short <code>✨ pith.day/p/&lt;handle&gt;</code> line appended, and the response shows you the exact caption before you see it on Instagram. Paid plans post your caption untouched.</span></div>
+    <div class="row"><b>Free-plan story images cost a slot</b><span class="muted">Asking to download a generated story image spends one of the three monthly stories the first time, exactly as it does in the app. Publishing your own photo never does.</span></div>
+    <div class="row"><b>Feed captions carry one attribution line on Free</b><span class="muted">Free-plan feed posts get a short <code>✨ Posted with pith.day</code> line appended, and the response shows you the exact caption before you see it on Instagram. Paid plans post your caption untouched.</span></div>
   </div>
 </section>
 
@@ -291,8 +293,8 @@
   <h2>What it costs</h2>
   <p class="lead">The connector is included on every plan, free one included. There is no separate MCP fee and no card needed to start.</p>
   <div class="cards">
-    <div class="card"><h3>Free</h3><p class="muted">10 publishes of your own content a day. 5 AI-made stories a rolling 30 days. One Instagram account.</p></div>
-    <div class="card"><h3>Pro — $49/mo</h3><p class="muted">Unlimited stories, unlimited publishes, reels, no attribution line.</p></div>
+    <div class="card"><h3>Free</h3><p class="muted">10 publishes of your own content a day. 3 AI-made stories a rolling 30 days. One Instagram account.</p></div>
+    <div class="card"><h3>Pro: $29/mo</h3><p class="muted">62 stories or posts a month (two a day), 10 of your own posts a day, reels, no attribution line.</p></div>
   </div>
 </section>
 
@@ -300,7 +302,7 @@
   <h2>Security and privacy</h2>
   <ul class="plain">
     <li class="muted">OAuth 2.1 authorization server run by pith.day: PKCE S256, Dynamic Client Registration, Client ID Metadata Documents, opaque tokens stored hashed.</li>
-    <li class="muted">Scopes are granular — view, edit, publish, checkout — and shown to you on the approval screen before anything connects.</li>
+    <li class="muted">Scopes are granular (view, edit, publish, checkout) and shown to you on the approval screen before anything connects.</li>
     <li class="muted">Pith reads your Instagram profile and publishes what you ask it to publish. It does not read your DMs, your followers, or anyone else's account.</li>
     <li class="muted">Checkout links are handed to you to open. Nothing is ever charged by an assistant.</li>
     <li class="muted">Revoke any connection from Settings → Connected apps. It takes effect immediately.</li>
@@ -309,7 +311,7 @@
 
 <section>
   <h2>FAQ</h2>
-  <details><summary>Is the server open source?</summary><p class="muted">No — this repository is the documentation and the manifest for a hosted service. The server itself is the pith.day product. You connect to it; you do not run it.</p></details>
+  <details><summary>Is the server open source?</summary><p class="muted">No. This repository is the documentation and the manifest for a hosted service. The server itself is the pith.day product. You connect to it; you do not run it.</p></details>
   <details><summary>Do I need an API key or a Meta developer app?</summary><p class="muted">No. Pith's Meta app is approved at standard access, so any Instagram Business or Creator account can connect through the normal Instagram login.</p></details>
   <details><summary>Can it post to Facebook, TikTok, or LinkedIn?</summary><p class="muted">Not today. Instagram stories, feed posts, carousels and reels are what it does.</p></details>
   <details><summary>Which clients work?</summary><p class="muted">Anything that speaks remote MCP over streamable HTTP with OAuth: Claude and Claude Code, Cursor, VS Code, and a growing list of others.</p></details>
