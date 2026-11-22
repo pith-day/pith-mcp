@@ -90,7 +90,7 @@ claude mcp add --transport http pith https://pith.day/api/mcp
 | | |
 | --- | --- |
 | **Publishes your own content, free** | Hand your assistant a photo and a caption and it goes up: a story, a feed post, or a 2–10 image carousel. One request, one post, immediately. Free accounts get 10 of these a day. |
-| **Runs the daily draft loop, when you want one** | Pith can also write the posts: a few drafts a morning in your brand's voice, built from your own photos and products. Your assistant reads them out, you approve the good one, it goes up. Five a month on the free plan. |
+| **Runs the daily draft loop, when you want one** | Pith can also write the posts: a few drafts a morning in your brand's voice, built from your own photos and products. Your assistant reads them out, you approve the good one, it goes up. Three a month on the free plan. |
 | **Keeps the boring account work in chat** | Products and prices, the photo library, your brand voice, the week's plan, what is left this month. The same things the app does, without opening the app. |
 
 ## What you actually say
